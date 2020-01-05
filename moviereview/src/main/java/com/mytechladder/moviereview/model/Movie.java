@@ -1,30 +1,35 @@
-package com.mytechladder.moviereview.model;
+package com.srividhyagk.movie_review;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "movie")
 public class Movie {
-	
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String title;
-	private String category;
 
-	public Movie(Long id, String title, String category) {
+	@Id // primary key
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	private String title;
+	private String Category;
+
+	// constructors
+	public Movie(int id, String title, String category) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.category = category;
+		Category = category;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -37,16 +42,16 @@ public class Movie {
 	}
 
 	public String getCategory() {
-		return category;
+		return Category;
 	}
 
 	public void setCategory(String category) {
-		this.category = category;
+		Category = category;
 	}
 
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", title=" + title + ", category=" + category + "]";
+		return "Movie [id=" + id + ", title=" + title + ", Category=" + Category + "]";
 	}
 
 }
